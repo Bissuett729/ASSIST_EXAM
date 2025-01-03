@@ -1,0 +1,17 @@
+<section class="h-screen w-screen flex relative overflow-x-hidden">
+  <app-sidebar></app-sidebar>
+
+  <main 
+  class="w-full h-full transition-[margin] duration-300"
+  [ngClass]="{
+    'ml-64' : _signals.openSidebarLeft$(),
+    'mr-64' : _signals.openSidebarRight$(),
+  }">
+    <app-header></app-header>
+    <div class="w-full h-[calc(100%-64px)] bg-main-light dark:bg-main-dark shadow-insetShadow">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <app-sidebar-right></app-sidebar-right>
+</section>
